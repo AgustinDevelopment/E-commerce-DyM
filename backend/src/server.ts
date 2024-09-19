@@ -3,7 +3,9 @@
 import express from 'express'
 import db from './config/db'
 import colors from 'colors'
-import projectRoutes from './routes/modeloRoutes'
+
+import productRouter from './routes/productRouter'
+import userRouter from './routes/userRouter'
 
 export const connectDB = async () => {
     try {
@@ -21,7 +23,8 @@ const app = express()
 app.use(express.json())
 
 // Routes
-app.use('/api/projects', projectRoutes)
+app.use('/api/products', productRouter)
+app.use('/api/users', userRouter)
 
 // server.use('/api/products', router)
 
